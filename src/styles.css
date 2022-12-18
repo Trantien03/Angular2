@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+h2{
+  color: chartreuse;
+}
+h1{
+  text-decoration: none;
+  transition: all 30ms;
+}
+h1:hover{
+  color: #9ce8d9;
+}
+nav{
+  text-align: center;
+}
+.breadcrumb{
+  text-align: center;
+}
+p{
+  text-decoration: none;
+  transition: all 30ms;
+}
+p:hover{
+  color: #d2dad9;
+}
+
+
