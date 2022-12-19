@@ -1,26 +1,24 @@
-import { Component} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {Component} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {Adapters} from "../../enums/adapters";
+import {ProductService} from "../../services/product.service";
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-
+  selector: 'page-category',
+  templateUrl: './category.component.html'
 })
-export class CategoryComponent {
-
+export class CategoryComponent{
   products: any = [];
-  limit: number = 10;
-
-
-  constructor(private http: HttpClient) {
+  limit: number = Adapters.LIMIT;
+  constructor(private productService: ProductService) {
   }
-  ngOnInit() {
+
+  ngOnInit(){
     this.getProducts();
   }
-  getProducts() {
-    const url = 'https://dummyjson.com/products?limit=' +this.limit;
-    this.http.get<any>(url).subscribe(data => {
+
+  getProducts(){
+    this.productService.getProducts(this.limit).subscribe(data=>{
       this.products = data.products;
     })
   }
@@ -30,4 +28,3 @@ export class CategoryComponent {
     this.getProducts();
   }
 }
-

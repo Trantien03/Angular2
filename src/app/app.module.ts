@@ -10,9 +10,9 @@ import { ProductComponent } from './pages/product/product.component';
 import {RouterModule, Routes} from "@angular/router";
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import {Shop1Component} from "./fashionshop/shop1/shop1.component";
-import {CategoriesComponent} from "./pages/categories/categories.component";
 import {HttpClientModule} from "@angular/common/http";
+import {SearchComponent} from "./search/search.component";
+import {FormsModule} from "@angular/forms";
 
 //1. khai bao danh sach cac routing
 const appRoutes: Routes = [
@@ -21,20 +21,19 @@ const appRoutes: Routes = [
   { path: 'product/:id', component: ProductComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path:'categories',component: CategoriesComponent},
-  { path:'categories/:name',component: CategoryComponent},
-  { path:'categories/:name/:id',component: ProductComponent},
-  { path: 'shop1', component: Shop1Component},
+  { path: 'search', component: SearchComponent},
 ]
 @NgModule({
   declarations: [
-    AppComponent,StudentComponent,ClassesComponent,CategoriesComponent,
-    HomeComponent,CategoryComponent, ProductComponent, LoginComponent, RegisterComponent, Shop1Component
+    AppComponent,StudentComponent,ClassesComponent,
+    HomeComponent,CategoryComponent, ProductComponent, LoginComponent, RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
